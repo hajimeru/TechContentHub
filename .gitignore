@@ -1,0 +1,81 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and tool noise
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Logs and caches
+*.log
+/.cache/
+/cache/
+/tmp/
+/temp/
+
+# Build outputs
+build/
+cmake-build-*/
+out/
+dist/
+bin/
+lib/
+Debug/
+Release/
+x64/
+x86/
+__pycache__/
+*.pyc
+
+# Native binaries and libraries
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.obj
+*.o
+*.pdb
+
+# Large archives and packages
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.iso
+*.msi
+*.pkg
+
+# Large media files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wmv
+*.flv
+*.wav
+*.mp3
+*.aac
+*.flac
+
+# Large model/data formats
+*.onnx
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.h5
+*.bin
+
+# Local external asset pointers
+TechContentHub-Assets/
+assets-large/
+large-assets/
