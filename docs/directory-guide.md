@@ -54,6 +54,24 @@ TechContentHub-Assets/
          └─ source-material/
 ```
 
+### Use logical media links
+
+Use `media://assets/...` to reference large external files from Markdown.
+
+Example:
+
+```text
+media://assets/content/osg/osg-instance-rendering/raw-video/10m-instance-test.mp4
+```
+
+Resolve `media://assets/` through:
+
+```text
+config/media-roots.local.yaml
+```
+
+This config file is committed intentionally. After cloning the repository on another computer, edit its `path` value to match that computer's Baidu Netdisk sync folder.
+
 ### Separate fact from suggestion
 
 AI-generated suggestions should not become technical facts automatically.
@@ -127,6 +145,43 @@ Do not put here:
 
 Use `docs/directory-guide.md` for operating rules.
 
+### `config/media-roots.local.yaml`
+
+Purpose:
+
+- Map logical `media://` roots to local disk paths.
+
+Put here:
+
+- The local path for `media://assets/`.
+- The storage type, such as `baidu-netdisk-sync`.
+- A short description of what the root stores.
+
+Do not put here:
+
+- Passwords.
+- Access tokens.
+- Private share links.
+- Per-topic asset lists.
+
+Constraint:
+
+- This file is tracked by Git for simplicity.
+- When using a new computer, edit `path` to the local Baidu Netdisk sync directory.
+- Keep the URI prefix stable so existing Markdown links do not need to change.
+
+Example:
+
+```yaml
+version: 1
+
+roots:
+  assets:
+    uri_prefix: "media://assets/"
+    storage: "baidu-netdisk-sync"
+    path: "D:/BaiduSyncdisk/TechContentHub-Assets"
+```
+
 ### `.gitignore`
 
 Purpose:
@@ -168,6 +223,7 @@ Suggested future files:
 docs/
 ├─ design.md
 ├─ directory-guide.md
+├─ media-links.md
 ├─ workflow.md
 └─ adr/
 ```
@@ -305,6 +361,7 @@ Every mature topic should follow this shape:
 ```text
 content/<domain>/<topic>/
 ├─ content.md
+├─ external-assets.md
 ├─ evidence/
 ├─ assets/
 ├─ demo/
@@ -344,6 +401,41 @@ Constraint:
 
 - If a claim depends on version, platform, driver, compiler, operating system, or hardware, state that boundary.
 - If evidence is missing, mark the claim as `待验证`.
+
+### `external-assets.md`
+
+Purpose:
+
+- Index large external files used by the topic.
+
+Put here:
+
+- `media://assets/...` URIs for raw videos, large models, heavy datasets, source footage, large archives, installers, and other files kept outside Git.
+- File names, storage location, type, purpose, and relationship to evidence or publishing work.
+
+Do not put here:
+
+- The large files themselves.
+- Private credentials or share passwords.
+- Small assets that should live directly under `assets/` or `data/`.
+
+Suggested entry:
+
+```markdown
+## Original Recording
+
+- Name: 10 million instance performance test recording
+- Type: video
+- URI: media://assets/content/osg/osg-instance-rendering/raw-video/10m-instance-test.mp4
+- Storage: Baidu Netdisk sync
+- Purpose: Bilibili source material and performance evidence
+```
+
+Constraint:
+
+- Prefer one `external-assets.md` per topic.
+- Keep external asset paths aligned with the topic path when possible.
+- If an external file supports a technical claim, mention the related evidence file.
 
 ### `evidence/`
 
@@ -407,7 +499,7 @@ Do not put here:
 
 Constraint:
 
-- Large visual/media assets should live in the external asset store, with a pointer recorded in `content.md` or `evidence/references.md`.
+- Large visual/media assets should live in the external asset store, with a `media://` pointer recorded in `external-assets.md`.
 
 ### `demo/`
 
@@ -458,7 +550,7 @@ Do not put here:
 
 Constraint:
 
-- If the data cannot be reviewed comfortably in Git, put it in the external asset store and leave a pointer.
+- If the data cannot be reviewed comfortably in Git, put it in the external asset store and leave a `media://` pointer in `external-assets.md`.
 
 ### `review/`
 
@@ -547,6 +639,7 @@ Put here:
 - Experiment template.
 - Benchmark template.
 - Review template.
+- External asset index template.
 - Video script template.
 - Article template.
 
@@ -660,13 +753,13 @@ When deciding where something belongs, ask:
 
 1. Is it a raw idea or quick capture? Put it in `inbox/`.
 2. Is it the maintained source of truth for a technical problem? Put it in `content/<domain>/<topic>/content.md`.
-3. Does it support a claim? Put it in `evidence/`.
-4. Is it a small visual asset? Put it in `assets/`.
-5. Is it minimal reproducible code? Put it in `demo/`.
-6. Is it small reproducibility data? Put it in `data/`.
-7. Is it AI or human critique? Put it in `review/`.
-8. Is it a platform draft? Put it in `publish/`.
-9. Is it reusable or sellable as an asset? Put it in `products/`.
-10. Is it outdated but still worth keeping? Put it in `archive/`.
-11. Is it large or private? Keep it outside this repository and record a pointer.
-
+3. Is it a large external file? Keep it outside Git and record a `media://` pointer in `external-assets.md`.
+4. Does it support a claim? Put it in `evidence/`.
+5. Is it a small visual asset? Put it in `assets/`.
+6. Is it minimal reproducible code? Put it in `demo/`.
+7. Is it small reproducibility data? Put it in `data/`.
+8. Is it AI or human critique? Put it in `review/`.
+9. Is it a platform draft? Put it in `publish/`.
+10. Is it reusable or sellable as an asset? Put it in `products/`.
+11. Is it outdated but still worth keeping? Put it in `archive/`.
+12. Is it private? Keep it outside this repository and record only a sanitized pointer.

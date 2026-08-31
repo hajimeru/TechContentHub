@@ -36,3 +36,14 @@ A reusable or sellable artifact derived from accumulated content, such as a chec
 
 A separate location for large binary assets that should not live in Git, such as raw videos, large models, source footage, heavy datasets, SDKs, archives, and installers.
 
+### Media URI
+
+A logical `media://` reference used in Markdown to point to a file in an external asset store without hard-coding a machine-specific disk path.
+
+### Media Root Config
+
+The tracked `config/media-roots.local.yaml` file that maps a media URI root, such as `media://assets/`, to a local disk path. Edit it after cloning the repository on another computer.
+
+### External Asset Index
+
+The `external-assets.md` file inside a topic folder. It records large external files used by the topic, usually with `media://assets/...` URIs.

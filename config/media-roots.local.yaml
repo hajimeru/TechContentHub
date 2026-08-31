@@ -1,0 +1,13 @@
+# This file is intentionally tracked.
+# After cloning this repository on another computer, edit `path` to match
+# that computer's Baidu Netdisk sync folder or external asset folder.
+
+version: 1
+
+roots:
+  assets:
+    uri_prefix: "media://assets/"
+    storage: "baidu-netdisk-sync"
+    path: "D:/BaiduSyncdisk/TechContentHub-Assets"
+    description: "External large asset store for TechContentHub."
+

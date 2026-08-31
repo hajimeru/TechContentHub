@@ -24,8 +24,10 @@ Platform drafts, video scripts, short posts, tools, and products should be deriv
 - [CONTEXT.md](CONTEXT.md): glossary for core concepts.
 - [docs/design.md](docs/design.md): high-level design summary.
 - [docs/directory-guide.md](docs/directory-guide.md): detailed folder responsibilities and constraints.
+- [docs/media-links.md](docs/media-links.md): `media://` URI rules for external Baidu Netdisk assets.
 
 ## Large File Rule
 
 Keep this repository lightweight and reviewable. Store large binary assets, raw videos, large datasets, SDKs, generated build outputs, and third-party packages outside this repository. Record their paths or links in Markdown instead.
 
+Use `media://assets/...` links for external large assets, with the local root path defined in [config/media-roots.local.yaml](config/media-roots.local.yaml).

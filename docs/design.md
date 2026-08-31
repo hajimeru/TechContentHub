@@ -51,6 +51,7 @@ TechContentHub/
 ├─ INDEX.md
 ├─ CONTEXT.md
 ├─ .gitignore
+├─ config/
 ├─ docs/
 ├─ inbox/
 ├─ content/
@@ -65,6 +66,7 @@ TechContentHub/
 ```text
 content/<domain>/<topic>/
 ├─ content.md
+├─ external-assets.md
 ├─ evidence/
 ├─ assets/
 ├─ demo/
@@ -72,6 +74,22 @@ content/<domain>/<topic>/
 ├─ review/
 └─ publish/
 ```
+
+## External Media Links
+
+Large videos, large models, heavy datasets, source footage, installers, and other large binary assets stay outside Git. The repository references them with stable logical links:
+
+```text
+media://assets/content/<domain>/<topic>/<category>/<file>
+```
+
+The local disk path for `media://assets/` is configured in:
+
+```text
+config/media-roots.local.yaml
+```
+
+This file is committed intentionally. After cloning on another computer, edit its `path` value to match that computer's Baidu Netdisk sync folder.
 
 ## Long-Term Goal
 
@@ -88,4 +106,3 @@ I own 100 verified technical knowledge assets.
 ```
 
 Each asset can later become articles, videos, answers, demos, skills, tools, templates, courses, or small products.
-
