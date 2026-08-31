@@ -1,39 +1,39 @@
-# Video Script
+# 视频脚本
 
-## Source
+## 来源
 
-- Mother content:
-- Topic:
+- 母内容：
+- 主题：
 
-## Title Candidates
+## 标题候选
 
 1. 
 2. 
 3. 
 
-## Opening
+## 开头
 
-What problem should the viewer recognize immediately?
+视频一开始要让观众立刻意识到什么问题？
 
-## Main Script
+## 正文脚本
 
-### Part 1
+### 第一部分
 
-### Part 2
+### 第二部分
 
-### Part 3
+### 第三部分
 
-## Visual Plan
+## 画面计划
 
-- Diagram:
-- Demo:
-- Screenshot:
+- 图示：
+- Demo：
+- 截图：
 
-## Ending
+## 结尾
 
-What should the viewer remember or do next?
+观众看完后应该记住什么，或者下一步做什么？
 
-## Description
+## 简介
 
-Short platform description.
+平台简介文案。
 

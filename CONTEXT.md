@@ -1,49 +1,49 @@
-# TechContentHub Context
+# TechContentHub 术语表
 
-This file defines the core language used in this repository. Keep it as a glossary, not an implementation plan.
+这个文件定义仓库里的核心概念。它只保存术语，不写实施计划。
 
-## Glossary
+## 术语
 
-### Mother Content
+### 母内容
 
-The canonical knowledge asset for one concrete technical topic. In this repository, mother content is stored as `content.md` inside a topic folder.
+一个具体技术主题的规范知识资产。在本仓库中，母内容固定保存为主题目录里的 `content.md`。
 
-### Topic
+### 主题
 
-A concrete technical problem or knowledge unit worth maintaining over time, such as `osg-opengl-version` or `linux-rpath-packaging`.
+一个值得长期维护的具体技术问题或知识单元，例如 `osg-opengl-version` 或 `linux-rpath-packaging`。
 
-### Domain
+### 领域
 
-A broad technical area under `content/`, such as `osg`, `cmake`, `linux`, or `cae`.
+`content/` 下的宽泛技术分类，例如 `osg`、`cmake`、`linux`、`cae`。
 
-### Evidence
+### 证据
 
-Material that supports or challenges claims in mother content: official documentation, standards, release notes, issue links, experiment notes, benchmark results, and reproducibility details.
+用于支持或挑战母内容中技术结论的材料，包括官方文档、标准、Release Note、Issue 链接、实验记录、benchmark 结果和复现细节。
 
-### Derived Content
+### 派生内容
 
-Platform-specific output generated from mother content, such as Bilibili scripts, Zhihu articles, WeChat posts, short-video copy, or product documentation.
+从母内容生成的平台化输出，例如 B 站脚本、知乎文章、微信公众号文章、短视频文案或产品文档。
 
-### Review
+### 审查
 
-AI or human critique of mother content. Review notes can identify missing evidence, unclear logic, factual risk, reproducibility gaps, privacy risk, or productization opportunities.
+对母内容进行的 AI 或人工检查。审查记录可以指出缺失证据、逻辑不清、事实风险、复现缺口、隐私风险和产品化机会。
 
-### Productized Asset
+### 产品化资产
 
-A reusable or sellable artifact derived from accumulated content, such as a checklist, toolkit, demo package, script, course material, template, skill, or small software tool.
+从长期内容积累中派生出来的可复用或可出售资产，例如清单、工具包、Demo 包、脚本、课程材料、模板、Skill 或小型软件工具。
 
-### External Asset Store
+### 外部资产库
 
-A separate location for large binary assets that should not live in Git, such as raw videos, large models, source footage, heavy datasets, SDKs, archives, and installers.
+存放不适合进入 Git 的大型二进制资产的位置，例如原始视频、大模型、源素材、大型数据集、SDK、压缩包和安装包。
 
-### Media URI
+### 媒体 URI
 
-A logical `media://` reference used in Markdown to point to a file in an external asset store without hard-coding a machine-specific disk path.
+Markdown 中使用的 `media://` 逻辑引用，用来指向外部资产库中的文件，同时避免在文档里写死某台电脑的磁盘路径。
 
-### Media Root Config
+### 媒体根配置
 
-The tracked `config/media-roots.local.yaml` file that maps a media URI root, such as `media://assets/`, to a local disk path. Edit it after cloning the repository on another computer.
+已提交到仓库的 `config/media-roots.local.yaml` 文件。它把 `media://assets/` 这样的逻辑根映射到本机磁盘路径。换电脑后直接修改这个文件里的 `path`。
 
-### External Asset Index
+### 外部资产索引
 
-The `external-assets.md` file inside a topic folder. It records large external files used by the topic, usually with `media://assets/...` URIs.
+主题目录中的 `external-assets.md` 文件。它记录该主题使用的大型外部文件，通常使用 `media://assets/...` URI。

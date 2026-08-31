@@ -1,36 +1,36 @@
-# Experiment
+# 实验
 
-## Question
+## 问题
 
-What are we trying to verify?
+这次实验要验证什么？
 
-## Hypothesis
+## 假设
 
-What do we expect to happen?
+预期会发生什么？
 
-## Environment
+## 环境
 
-- OS:
-- Compiler/toolchain:
-- Library versions:
-- Hardware:
-- Relevant configuration:
+- 操作系统：
+- 编译器 / 工具链：
+- 库版本：
+- 硬件：
+- 相关配置：
 
-## Steps
+## 步骤
 
 1. 
 2. 
 3. 
 
-## Result
+## 结果
 
-What happened?
+实际发生了什么？
 
-## Interpretation
+## 解释
 
-What does the result prove, not prove, or suggest?
+这个结果证明了什么、没有证明什么、或者暗示了什么？
 
-## Follow-up
+## 后续
 
 - 
 

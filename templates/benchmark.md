@@ -1,38 +1,38 @@
 # Benchmark
 
-## Goal
+## 目标
 
-What are we measuring and why?
+这次 benchmark 要测量什么？为什么要测？
 
-## Compared Options
+## 对比对象
 
-- Option A:
-- Option B:
+- 方案 A：
+- 方案 B：
 
-## Environment
+## 环境
 
-- OS:
-- CPU:
-- GPU:
-- Memory:
-- Compiler/toolchain:
-- Library versions:
+- 操作系统：
+- CPU：
+- GPU：
+- 内存：
+- 编译器 / 工具链：
+- 库版本：
 
-## Method
+## 方法
 
-Describe the benchmark procedure.
+说明 benchmark 的执行方式。
 
-## Results
+## 结果
 
-| Case | Metric | Result | Notes |
+| 场景 | 指标 | 结果 | 备注 |
 | --- | --- | --- | --- |
 |  |  |  |  |
 
-## Conclusion
+## 结论
 
-What conclusion is supported by this benchmark?
+这个 benchmark 支持什么结论？
 
-## Limits
+## 限制
 
-What should not be generalized from this result?
+这个结果不能被泛化到哪些情况？
 

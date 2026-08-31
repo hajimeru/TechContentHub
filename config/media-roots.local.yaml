@@ -1,6 +1,5 @@
-# This file is intentionally tracked.
-# After cloning this repository on another computer, edit `path` to match
-# that computer's Baidu Netdisk sync folder or external asset folder.
+# 这个文件会提交到 Git。
+# 换电脑后，把下面的 path 改成那台电脑上的百度网盘同步目录或外部资产目录。
 
 version: 1
 
@@ -9,5 +8,5 @@ roots:
     uri_prefix: "media://assets/"
     storage: "baidu-netdisk-sync"
     path: "D:/BaiduSyncdisk/TechContentHub-Assets"
-    description: "External large asset store for TechContentHub."
+    description: "TechContentHub 的外部大文件资产库。"
 

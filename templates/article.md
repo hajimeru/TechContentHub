@@ -1,27 +1,27 @@
-# Article
+# 文章
 
-## Source
+## 来源
 
-- Mother content:
-- Target platform:
+- 母内容：
+- 目标平台：
 
-## Title
+## 标题
 
-## Abstract
+## 摘要
 
-## Body
+## 正文
 
-### Problem
+### 问题
 
-### Explanation
+### 解释
 
-### Solution
+### 方案
 
-### Verification
+### 验证
 
-### Boundaries
+### 边界
 
-## References
+## 参考
 
 - 
 

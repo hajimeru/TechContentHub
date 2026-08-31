@@ -1,45 +1,45 @@
-# Review
+# 审查记录
 
-## Target
+## 审查对象
 
-- File:
-- Date:
-- Reviewer:
+- 文件：
+- 日期：
+- 审查者：
 
-## Technical Correctness
+## 技术正确性
 
-- Issue:
-- Evidence needed:
-- Suggested action:
+- 问题：
+- 需要的证据：
+- 建议动作：
 
-## Logic and Structure
+## 逻辑和结构
 
-- Missing background:
-- Missing explanation:
-- Missing boundary:
+- 缺少的背景：
+- 缺少的解释：
+- 缺少的边界：
 
-## Evidence
+## 证据
 
-- Claim without evidence:
-- Evidence quality concern:
+- 缺少证据的结论：
+- 证据质量问题：
 
-## Reproducibility
+## 可复现性
 
-- Missing environment:
-- Missing demo:
-- Missing data:
+- 缺少的环境信息：
+- 缺少的 Demo：
+- 缺少的数据：
 
-## Privacy and Sanitization
+## 隐私和脱敏
 
-- Potential company/customer detail:
-- Internal path/IP/license risk:
+- 潜在公司 / 客户信息：
+- 内部路径 / IP / License 风险：
 
-## Productization Ideas
+## 产品化想法
 
-- Possible asset:
-- Required extra work:
+- 可能形成的资产：
+- 需要补充的工作：
 
-## Action Items
+## 行动项
 
 - [ ] 
 

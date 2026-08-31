@@ -1,25 +1,25 @@
 ---
 name: mother-content-reviewer
-description: Review TechContentHub mother content for technical correctness, evidence, reproducibility, sanitization, and productization opportunities.
+description: 审查 TechContentHub 的母内容，重点检查技术正确性、证据、复现性、脱敏情况和产品化机会。
 ---
 
-# Mother Content Reviewer
+# 母内容审查器
 
-Use this skill to review a `content.md` file inside `content/<domain>/<topic>/`.
+使用这个 Skill 审查 `content/<domain>/<topic>/content.md`。
 
-## Output
+## 输出
 
-Write findings as a review note under the topic's `review/` folder. Do not silently rewrite `content.md`.
+把发现写入该主题的 `review/` 目录。不要静默改写 `content.md`。
 
-## Review Focus
+## 审查重点
 
-- Technical correctness: identify unclear concepts, over-generalized claims, missing version boundaries, platform assumptions, and API misuse.
-- Evidence: check whether important claims point to `evidence/` or are clearly marked as `待验证`.
-- Reproducibility: check whether the environment, demo, data, and steps are enough for another reader to reproduce the result.
-- Sanitization: look for company names, customer details, internal paths, IPs, license data, credentials, proprietary class names, and commercial source leakage.
-- Improvement: suggest diagrams, experiments, benchmarks, examples, platform drafts, or productized assets when they would materially improve the topic.
+- 技术正确性：指出概念不清、结论过度泛化、缺少版本边界、平台假设不明确或 API 使用错误的地方。
+- 证据：检查重要结论是否指向 `evidence/`，或者是否明确标记为 `待验证`。
+- 可复现性：检查环境、Demo、数据和步骤是否足够让别人复现。
+- 脱敏：检查公司名称、客户信息、内部路径、IP、License、凭据、专有类名和商业源码泄漏风险。
+- 改进：在确实有价值时，建议补充图示、实验、benchmark、示例、平台稿或产品化资产。
 
-## Boundary
+## 边界
 
-Treat suggestions as advisory. A suggestion becomes mother content only after human judgment and, when needed, supporting evidence.
+审查建议只是建议。只有经过人工判断，并在需要时补充证据后，建议才能进入母内容。
 

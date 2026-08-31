@@ -1,63 +1,63 @@
-# TechContentHub Index
+# TechContentHub 总索引
 
-This file is the top-level map of the content library.
+这个文件是整个内容库的入口地图。
 
-Keep it as a curated index, not an automatic dump. Add stable topics here after they move from `inbox/` into `content/`.
+它应该是人工整理过的索引，不是自动堆出来的文件清单。内容从 `inbox/` 移入 `content/` 并稳定下来之后，再补到这里。
 
 ## C++
 
 - ABI
-- GCC / GLIBC compatibility
-- C++20 toolchain
+- GCC / GLIBC 兼容
+- C++20 工具链
 
 ## OSG
 
-- OSG scene graph fundamentals
-- OSG OpenGL version compatibility
-- OSG instance rendering
+- OSG 场景图原理
+- OSG OpenGL 版本兼容
+- OSG Instance Rendering
 - OSG RTT
 - OSG OIT
 
 ## OpenGL
 
-- Version compatibility
-- Extensions
-- Driver behavior
+- 版本兼容
+- 扩展机制
+- 驱动行为
 
 ## Qt
 
-- Deployment
-- Rendering integration
-- Cross-platform issues
+- 程序发布
+- 渲染集成
+- 跨平台问题
 
 ## CMake
 
-- Linux dependency packaging
+- Linux 程序依赖打包
 - RPATH
-- Toolchain files
+- Toolchain 文件
 
 ## Linux
 
-- Runtime dependencies
+- 运行时依赖
 - X11
 - Mesa
-- Packaging
+- 程序打包
 
 ## Rendering
 
-- RenderDoc notes
-- Performance analysis
-- Pipeline debugging
+- RenderDoc 笔记
+- 性能分析
+- 渲染管线调试
 
 ## CAE
 
-- Post-processing
-- Isosurface extraction
-- Mesh data handling
+- 后处理
+- 等值面提取
+- 网格数据处理
 
 ## AI Coding
 
-- AI-assisted debugging
-- Coding agent workflows
-- Technical content review skills
+- AI 辅助调试
+- 编程 Agent 工作流
+- 技术内容审查 Skill
 

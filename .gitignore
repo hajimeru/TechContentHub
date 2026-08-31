@@ -1,9 +1,9 @@
-# Operating system files
+# 操作系统文件
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Editor and tool noise
+# 编辑器和工具噪声
 .idea/
 .vscode/
 *.swp
@@ -11,14 +11,14 @@ desktop.ini
 *.tmp
 *.bak
 
-# Logs and caches
+# 日志和缓存
 *.log
 /.cache/
 /cache/
 /tmp/
 /temp/
 
-# Build outputs
+# 构建产物
 build/
 cmake-build-*/
 out/
@@ -32,7 +32,7 @@ x86/
 __pycache__/
 *.pyc
 
-# Native binaries and libraries
+# 原生二进制和库文件
 *.exe
 *.dll
 *.so
@@ -43,7 +43,7 @@ __pycache__/
 *.o
 *.pdb
 
-# Large archives and packages
+# 大型压缩包和安装包
 *.zip
 *.7z
 *.rar
@@ -54,7 +54,7 @@ __pycache__/
 *.msi
 *.pkg
 
-# Large media files
+# 大型媒体文件
 *.mp4
 *.mov
 *.avi
@@ -66,7 +66,7 @@ __pycache__/
 *.aac
 *.flac
 
-# Large model/data formats
+# 大型模型和数据文件
 *.onnx
 *.pt
 *.pth
@@ -75,7 +75,7 @@ __pycache__/
 *.h5
 *.bin
 
-# Local external asset pointers
+# 本地外部资产目录
 TechContentHub-Assets/
 assets-large/
 large-assets/

@@ -1,28 +1,28 @@
-# TechContentHub Directory Guide
+# TechContentHub 目录说明
 
-This document defines what each folder is for, what belongs there, what should stay out, and how content moves through the repository.
+这个文档规定每个目录放什么、不放什么，以及内容在仓库中的流转方式。
 
-## Global Rules
+## 全局规则
 
-### One source of truth
+### 一个事实源
 
-Each concrete technical topic should have exactly one mother content file:
+每个具体技术主题只能有一个母内容文件：
 
 ```text
 content/<domain>/<topic>/content.md
 ```
 
-Use this file for the most complete technical understanding. Platform drafts and product notes should be derived from it.
+`content.md` 保存当前对这个技术主题最完整、最稳定的理解。平台稿、产品文档和视频脚本都应该从它派生。
 
-### Organize by technical problem
+### 按技术问题组织
 
-Use this shape:
+正式内容使用这个结构：
 
 ```text
 content/<technical-domain>/<specific-topic>/
 ```
 
-Do not organize the main library by platform:
+不要把主内容库按平台拆成：
 
 ```text
 bilibili/
@@ -31,17 +31,17 @@ wechat/
 xiaohongshu/
 ```
 
-Those belong under a topic's `publish/` folder.
+平台稿应该放在具体主题目录下的 `publish/`。
 
-### Keep Git lightweight
+### Git 保持轻量
 
-This repository should mainly contain text, small reproducible examples, small diagrams, small datasets, templates, scripts, and reviewable technical assets.
+这个仓库主要保存文本、小型可复现代码、小图、小数据、模板、脚本和可审查的技术资产。
 
-Do not store large raw media, large datasets, SDKs, installers, compiled outputs, third-party binary packages, or customer/private source material here.
+大型原始视频、大型数据集、SDK、安装包、构建产物、第三方二进制包、客户或公司私有原始材料不要放进 Git。
 
-When large files are needed, put them in an external asset store and record the path or link in Markdown.
+需要大文件时，把文件放进外部资产库，并在 Markdown 中记录逻辑链接。
 
-Recommended external shape:
+推荐的外部资产库结构：
 
 ```text
 TechContentHub-Assets/
@@ -54,123 +54,123 @@ TechContentHub-Assets/
          └─ source-material/
 ```
 
-### Use logical media links
+### 使用逻辑媒体链接
 
-Use `media://assets/...` to reference large external files from Markdown.
+Markdown 中使用 `media://assets/...` 引用大型外部文件。
 
-Example:
+示例：
 
 ```text
 media://assets/content/osg/osg-instance-rendering/raw-video/10m-instance-test.mp4
 ```
 
-Resolve `media://assets/` through:
+`media://assets/` 通过下面的配置解析：
 
 ```text
 config/media-roots.local.yaml
 ```
 
-This config file is committed intentionally. After cloning the repository on another computer, edit its `path` value to match that computer's Baidu Netdisk sync folder.
+这个配置文件会提交到 Git。换电脑后，修改其中的 `path`，让它指向那台电脑上的百度网盘同步目录。
 
-### Separate fact from suggestion
+### 区分事实和建议
 
-AI-generated suggestions should not become technical facts automatically.
+AI 生成的建议不能自动变成技术事实。
 
-Use this flow:
+正确流程：
 
 ```text
-AI suggestion -> review/ -> human judgment -> evidence or experiment -> content.md
+AI 建议 -> review/ -> 人工判断 -> 证据或实验 -> content.md
 ```
 
-If a claim is useful but not verified, mark it clearly in `content.md` as `待验证`.
+如果某个结论有价值但尚未验证，在 `content.md` 中明确标记为 `待验证`。
 
-## Root Files
+## 根目录文件
 
 ### `README.md`
 
-Purpose:
+用途：
 
-- Explain what `TechContentHub` is.
-- Show the core workflow.
-- Link to the most important documents.
+- 说明 `TechContentHub` 是什么。
+- 展示核心工作流。
+- 链接最重要的文档。
 
-Put here:
+适合放：
 
-- Repository positioning.
-- High-level rules.
-- Links to `INDEX.md`, `CONTEXT.md`, and `docs/`.
+- 仓库定位。
+- 高层规则。
+- 指向 `INDEX.md`、`CONTEXT.md` 和 `docs/` 的链接。
 
-Do not put here:
+不适合放：
 
-- Long technical notes.
-- Full platform drafts.
-- One-off temporary ideas.
+- 很长的技术笔记。
+- 完整平台稿。
+- 临时想法。
 
 ### `INDEX.md`
 
-Purpose:
+用途：
 
-- Act as the top-level navigation page for mature topics.
+- 作为成熟主题的总导航。
 
-Put here:
+适合放：
 
-- Stable topics after they move into `content/`.
-- Short manually curated links or topic names grouped by domain.
+- 已经从 `inbox/` 移入 `content/` 的稳定主题。
+- 按领域整理的短链接或主题名。
 
-Do not put here:
+不适合放：
 
-- Every temporary idea in `inbox/`.
-- Unverified claims.
-- Long summaries that duplicate `content.md`.
+- `inbox/` 里的所有临时想法。
+- 未验证结论。
+- 重复 `content.md` 的长摘要。
 
-Maintenance rule:
+维护规则：
 
-- Update it when a topic becomes stable enough to be worth rediscovering.
+- 当一个主题稳定到值得以后重新找到时，再加入索引。
 
 ### `CONTEXT.md`
 
-Purpose:
+用途：
 
-- Define repository vocabulary.
+- 定义仓库内的核心术语。
 
-Put here:
+适合放：
 
-- Terms such as Mother Content, Topic, Domain, Evidence, Review, Derived Content, Productized Asset, External Asset Store.
+- 母内容、主题、领域、证据、审查、派生内容、产品化资产、外部资产库等术语。
 
-Do not put here:
+不适合放：
 
-- Implementation steps.
-- Folder-by-folder operating instructions.
-- Technical research notes.
+- 实施步骤。
+- 逐目录操作规则。
+- 技术研究笔记。
 
-Use `docs/directory-guide.md` for operating rules.
+操作规则放在 `docs/directory-guide.md`。
 
 ### `config/media-roots.local.yaml`
 
-Purpose:
+用途：
 
-- Map logical `media://` roots to local disk paths.
+- 把 `media://` 逻辑根映射到本机磁盘路径。
 
-Put here:
+适合放：
 
-- The local path for `media://assets/`.
-- The storage type, such as `baidu-netdisk-sync`.
-- A short description of what the root stores.
+- `media://assets/` 对应的本机路径。
+- 存储类型，例如 `baidu-netdisk-sync`。
+- 这个根目录保存什么资产的简短说明。
 
-Do not put here:
+不适合放：
 
-- Passwords.
-- Access tokens.
-- Private share links.
-- Per-topic asset lists.
+- 密码。
+- Access Token。
+- 私密分享链接。
+- 每个主题的资产列表。
 
-Constraint:
+约束：
 
-- This file is tracked by Git for simplicity.
-- When using a new computer, edit `path` to the local Baidu Netdisk sync directory.
-- Keep the URI prefix stable so existing Markdown links do not need to change.
+- 这个文件为了简单会提交到 Git。
+- 换电脑后，直接修改 `path` 为当前电脑的百度网盘同步目录。
+- 保持 `uri_prefix` 稳定，这样已有 Markdown 链接不需要改。
 
-Example:
+示例：
 
 ```yaml
 version: 1
@@ -184,40 +184,41 @@ roots:
 
 ### `.gitignore`
 
-Purpose:
+用途：
 
-- Keep large, generated, private, and noisy files out of Git.
+- 防止大型文件、生成文件、私有文件和工具噪声进入 Git。
 
-Put here:
+适合放：
 
-- Build output patterns.
-- Binary and archive patterns.
-- Large model/data/media patterns.
-- Cache and temporary file patterns.
+- 构建产物模式。
+- 二进制和压缩包模式。
+- 大模型、大数据、大媒体文件模式。
+- 缓存和临时文件模式。
 
-Constraint:
+约束：
 
-- If you intentionally need to version a normally ignored small file, document why near the topic that uses it.
+- 如果确实需要提交一个通常会被忽略的小文件，在使用它的主题附近说明原因。
 
 ## `docs/`
 
-Purpose:
+用途：
 
-- Store repository-level documentation.
+- 保存仓库级文档。
 
-Put here:
+适合放：
 
-- `design.md`: high-level design.
-- `directory-guide.md`: folder responsibilities and constraints.
-- Future workflow notes, ADRs, or maintenance documents.
+- `design.md`：总体设计。
+- `directory-guide.md`：目录职责和约束。
+- `media-links.md`：`media://` 使用规则。
+- 后续的工作流说明、ADR 或维护文档。
 
-Do not put here:
+不适合放：
 
-- Topic-specific research. Put that under `content/<domain>/<topic>/`.
-- Platform drafts. Put those under a topic's `publish/`.
-- Temporary capture notes. Put those under `inbox/`.
+- 具体主题的技术研究。应放在 `content/<domain>/<topic>/`。
+- 平台稿。应放在主题的 `publish/`。
+- 临时捕获笔记。应放在 `inbox/`。
 
-Suggested future files:
+建议后续结构：
 
 ```text
 docs/
@@ -230,93 +231,93 @@ docs/
 
 ## `inbox/`
 
-Purpose:
+用途：
 
-- Capture raw ideas and unresolved material quickly.
+- 快速收集原始想法和还没整理的材料。
 
-Put here:
+适合放：
 
-- Work problems worth investigating.
-- Rough article or video ideas.
-- AI conversation excerpts.
-- Links to docs, issues, Stack Overflow answers, or papers.
-- Small screenshots.
-- Small CSV or JSON snippets.
-- Temporary benchmark notes.
+- 工作中遇到、值得后续研究的问题。
+- 粗略文章或视频选题。
+- AI 对话摘录。
+- 官方文档、Issue、Stack Overflow、论文等链接。
+- 小截图。
+- 小型 CSV 或 JSON 片段。
+- 临时 benchmark 笔记。
 
-Do not put here:
+不适合放：
 
-- Large videos.
-- Large datasets.
-- SDKs or installers.
-- Complete commercial projects.
-- Customer/private raw data.
-- Build outputs.
-- Anything you already know belongs in a stable topic.
+- 大视频。
+- 大型数据集。
+- SDK 或安装包。
+- 完整商业项目。
+- 客户或公司私有原始数据。
+- 构建产物。
+- 已经明确属于稳定主题的材料。
 
-Constraint:
+约束：
 
-- `inbox/` may be messy in content state, but it should stay lightweight in file size.
-- For large raw material, create a small Markdown note that points to the external asset location.
+- `inbox/` 允许内容状态比较乱，但文件体积仍然要轻量。
+- 大型原始材料不要直接放进 `inbox/`，只放一个 Markdown 说明，指向外部资产位置。
 
-Example:
+示例：
 
 ```markdown
-# OSG rendering issue
+# OSG 渲染问题
 
-Status: raw capture
+状态：原始捕获
 
-Large assets:
+大型资产：
 
-- TechContentHub-Assets/inbox/osg-rendering-issue/raw-video/
-- TechContentHub-Assets/inbox/osg-rendering-issue/source-model/
+- media://assets/inbox/osg-rendering-issue/raw-video/
+- media://assets/inbox/osg-rendering-issue/source-model/
 ```
 
-Promotion rule:
+转入正式内容的规则：
 
 ```text
 inbox/<rough-note>.md
   -> content/<domain>/<topic>/content.md
 ```
 
-Move material out of `inbox/` when it has:
+当材料具备下面条件时，可以移出 `inbox/`：
 
-- A clear technical problem.
-- A likely domain.
-- Enough value to maintain over time.
+- 技术问题已经清楚。
+- 大致领域已经清楚。
+- 有长期维护价值。
 
 ### `inbox/tmp/`
 
-Purpose:
+用途：
 
-- Hold short-lived scratch notes.
+- 存放短期草稿和临时记录。
 
-Constraint:
+约束：
 
-- Anything still useful after a short period should move to `inbox/` or `content/`.
-- Do not rely on this folder for long-term storage.
+- 仍然有价值的内容应尽快移动到 `inbox/` 或 `content/`。
+- 不要把这个目录当长期存储。
 
 ## `content/`
 
-Purpose:
+用途：
 
-- The main mother content asset library.
+- 主母内容资产库。
 
-Put here:
+适合放：
 
-- Verified or actively maintained technical topics.
-- One folder per domain.
-- One folder per concrete topic.
+- 已验证或正在长期维护的技术主题。
+- 每个领域一个目录。
+- 每个具体主题一个目录。
 
-Do not put here:
+不适合放：
 
-- Random capture notes.
-- Platform-only drafts without mother content.
-- Large binary assets.
-- Full commercial source projects.
-- Private/customer material that has not been sanitized.
+- 随手捕获的零散笔记。
+- 没有母内容的平台稿。
+- 大型二进制资产。
+- 完整商业源码。
+- 没有脱敏的客户或公司资料。
 
-Domain examples:
+领域示例：
 
 ```text
 content/
@@ -331,13 +332,13 @@ content/
 └─ ai-coding/
 ```
 
-Topic naming:
+主题命名：
 
-- Use lowercase English slugs.
-- Prefer `kebab-case`.
-- Make the topic specific enough to be useful.
+- 使用小写英文 slug。
+- 优先使用 `kebab-case`。
+- 名称要具体，能表达技术问题。
 
-Good:
+推荐：
 
 ```text
 osg-opengl-version/
@@ -345,7 +346,7 @@ linux-rpath-packaging/
 cmake-find-package-debugging/
 ```
 
-Weak:
+不推荐：
 
 ```text
 notes/
@@ -354,9 +355,9 @@ final/
 article/
 ```
 
-## Standard Topic Folder
+## 标准主题目录
 
-Every mature topic should follow this shape:
+成熟主题统一使用下面结构：
 
 ```text
 content/<domain>/<topic>/
@@ -372,96 +373,96 @@ content/<domain>/<topic>/
 
 ### `content.md`
 
-Purpose:
+用途：
 
-- The mother content and only source of truth for the topic.
+- 主题的母内容，也是唯一事实源。
 
-Put here:
+适合放：
 
-- Problem background.
-- Technical principles.
-- Your understanding.
-- Verified conclusions.
-- Version and platform constraints.
-- Reproduction steps.
-- Demo explanation.
-- Common mistakes.
-- Performance notes.
-- Scope and limitations.
-- Open questions.
+- 问题背景。
+- 技术原理。
+- 自己的理解。
+- 已验证结论。
+- 版本和平台边界。
+- 复现步骤。
+- Demo 说明。
+- 常见错误。
+- 性能问题。
+- 适用范围和不适用范围。
+- 后续开放问题。
 
-Do not put here:
+不适合放：
 
-- Platform-specific phrasing as the primary structure.
-- Unchecked AI suggestions as facts.
-- Private customer details.
-- Internal company paths, hostnames, IPs, credentials, license data, or proprietary class names.
+- 以平台话术为主结构的文章稿。
+- 未审查的 AI 建议。
+- 客户私有细节。
+- 公司内部路径、主机名、IP、凭据、License 信息或专有类名。
 
-Constraint:
+约束：
 
-- If a claim depends on version, platform, driver, compiler, operating system, or hardware, state that boundary.
-- If evidence is missing, mark the claim as `待验证`.
+- 结论依赖版本、平台、驱动、编译器、操作系统或硬件时，必须写清边界。
+- 缺少证据的结论要标记为 `待验证`。
 
 ### `external-assets.md`
 
-Purpose:
+用途：
 
-- Index large external files used by the topic.
+- 索引该主题使用的大型外部文件。
 
-Put here:
+适合放：
 
-- `media://assets/...` URIs for raw videos, large models, heavy datasets, source footage, large archives, installers, and other files kept outside Git.
-- File names, storage location, type, purpose, and relationship to evidence or publishing work.
+- 原始视频、大模型、大型数据集、源素材、大型压缩包、安装包等外部文件的 `media://assets/...` URI。
+- 文件名、存储位置、类型、用途，以及它和证据或发布工作的关系。
 
-Do not put here:
+不适合放：
 
-- The large files themselves.
-- Private credentials or share passwords.
-- Small assets that should live directly under `assets/` or `data/`.
+- 大文件本体。
+- 私密凭据或分享密码。
+- 应直接放入 `assets/` 或 `data/` 的小文件。
 
-Suggested entry:
+建议条目：
 
 ```markdown
-## Original Recording
+## 原始录屏
 
-- Name: 10 million instance performance test recording
-- Type: video
-- URI: media://assets/content/osg/osg-instance-rendering/raw-video/10m-instance-test.mp4
-- Storage: Baidu Netdisk sync
-- Purpose: Bilibili source material and performance evidence
+- 名称：1000 万实例性能测试原始录屏
+- 类型：video
+- URI：media://assets/content/osg/osg-instance-rendering/raw-video/10m-instance-test.mp4
+- 存储：百度网盘同步目录
+- 用途：B 站视频素材、性能测试证据
 ```
 
-Constraint:
+约束：
 
-- Prefer one `external-assets.md` per topic.
-- Keep external asset paths aligned with the topic path when possible.
-- If an external file supports a technical claim, mention the related evidence file.
+- 每个主题优先维护一个 `external-assets.md`。
+- 外部资产路径尽量和主题路径保持一致。
+- 如果外部文件支撑某个技术结论，要注明关联的证据文件。
 
 ### `evidence/`
 
-Purpose:
+用途：
 
-- Store support material behind technical claims.
+- 保存技术结论背后的证据材料。
 
-Put here:
+适合放：
 
-- Official documentation notes.
-- Standards references.
-- Release note links.
-- GitHub issue links.
-- Experiment notes.
-- Benchmark methodology and results.
-- Environment details.
-- Reproduction records.
+- 官方文档笔记。
+- 标准引用。
+- Release Note 链接。
+- GitHub Issue 链接。
+- 实验记录。
+- Benchmark 方法和结果。
+- 环境细节。
+- 复现记录。
 
-Do not put here:
+不适合放：
 
-- Random ideas.
-- AI suggestions without validation.
-- Large raw datasets.
-- Full copies of copyrighted manuals when a citation or short note is enough.
+- 随机想法。
+- 未验证的 AI 建议。
+- 大型原始数据集。
+- 大段复制的版权文档。
 
-Suggested files:
+建议文件：
 
 ```text
 evidence/
@@ -471,109 +472,109 @@ evidence/
 └─ benchmark.md
 ```
 
-Constraint:
+约束：
 
-- Evidence should help distinguish fact, experience, inference, and opinion.
+- 证据应该帮助区分事实、经验、推断和观点。
 
 ### `assets/`
 
-Purpose:
+用途：
 
-- Store small visual or content assets used by the topic.
+- 保存主题使用的小型视觉素材或内容素材。
 
-Put here:
+适合放：
 
-- Diagrams.
-- Small screenshots.
-- Small image source files.
-- DrawIO files.
-- SVGs.
-- Thumbnail source files if reasonably small.
+- 技术图。
+- 小截图。
+- 小型图片源文件。
+- DrawIO 文件。
+- SVG 文件。
+- 体积合理的封面源文件。
 
-Do not put here:
+不适合放：
 
-- Raw video footage.
-- Large PSD or project files.
-- Large model files.
-- Large customer screenshots or private data.
+- 原始视频素材。
+- 大型 PSD 或工程文件。
+- 大模型文件。
+- 大量客户截图或私有数据。
 
-Constraint:
+约束：
 
-- Large visual/media assets should live in the external asset store, with a `media://` pointer recorded in `external-assets.md`.
+- 大型视觉或媒体素材放进外部资产库，并在 `external-assets.md` 中记录 `media://` 链接。
 
 ### `demo/`
 
-Purpose:
+用途：
 
-- Store minimal reproducible code that supports the topic.
+- 保存支撑主题结论的最小可复现代码。
 
-Put here:
+适合放：
 
-- Minimal demos.
-- Reproducers.
-- Small benchmark programs.
-- Example scripts.
-- `README.md` explaining how to run the demo.
+- 最小 Demo。
+- Reproducer。
+- 小型 benchmark 程序。
+- 示例脚本。
+- 说明如何运行 Demo 的 `README.md`。
 
-Do not put here:
+不适合放：
 
-- Full commercial projects.
-- Customer source code.
-- Build outputs.
-- Vendored third-party SDKs.
-- Large dependencies.
+- 完整商业项目。
+- 客户源码。
+- 构建产物。
+- 第三方 SDK 副本。
+- 大型依赖。
 
-Constraint:
+约束：
 
-- Demo code should be publishable after sanitization.
-- Prefer small, focused examples over copied real-world projects.
+- Demo 代码应在脱敏后可以公开。
+- 优先保留小而聚焦的示例，不直接复制真实项目。
 
 ### `data/`
 
-Purpose:
+用途：
 
-- Store small data needed to reproduce examples or explain results.
+- 保存复现实验或解释结果所需的小数据。
 
-Put here:
+适合放：
 
-- Small CSV files.
-- Small JSON files.
-- Small sample input.
-- Lightweight benchmark output.
+- 小型 CSV。
+- 小型 JSON。
+- 小样例输入。
+- 轻量 benchmark 输出。
 
-Do not put here:
+不适合放：
 
-- Large datasets.
-- Customer raw data.
-- Large meshes or models.
-- Binary dumps.
+- 大型数据集。
+- 客户原始数据。
+- 大型网格或模型。
+- 二进制 dump。
 
-Constraint:
+约束：
 
-- If the data cannot be reviewed comfortably in Git, put it in the external asset store and leave a `media://` pointer in `external-assets.md`.
+- 如果数据无法舒适地在 Git 中审查，就放进外部资产库，并在 `external-assets.md` 中留下 `media://` 链接。
 
 ### `review/`
 
-Purpose:
+用途：
 
-- Store human and AI review records for the topic.
+- 保存主题的人工和 AI 审查记录。
 
-Put here:
+适合放：
 
-- Fact-check notes.
-- Missing-point reviews.
-- Technical risk reviews.
-- Reproducibility reviews.
-- Privacy and sanitization checks.
-- Productization suggestions.
+- 事实核查记录。
+- 缺失点审查。
+- 技术风险审查。
+- 可复现性审查。
+- 隐私和脱敏检查。
+- 产品化建议。
 
-Do not put here:
+不适合放：
 
-- Final technical facts unless they have been moved into `content.md`.
-- Platform drafts.
-- Raw capture notes.
+- 尚未进入 `content.md` 的最终技术事实。
+- 平台稿。
+- 原始捕获笔记。
 
-Suggested files:
+建议文件：
 
 ```text
 review/
@@ -583,32 +584,32 @@ review/
 └─ improvement.md
 ```
 
-Constraint:
+约束：
 
-- Review output is advisory. It becomes part of mother content only after human judgment and, where needed, evidence.
+- 审查结果是建议。只有经过人工判断，并在需要时补充证据后，才能进入母内容。
 
 ### `publish/`
 
-Purpose:
+用途：
 
-- Store platform-specific derived content.
+- 保存平台化派生内容。
 
-Put here:
+适合放：
 
-- Bilibili scripts, titles, descriptions.
-- Zhihu article drafts.
-- WeChat article drafts.
-- Xiaohongshu notes.
-- Douyin short-video copy.
-- Product documentation derived from the topic.
+- B 站脚本、标题、简介。
+- 知乎文章草稿。
+- 微信公众号文章草稿。
+- 小红书笔记。
+- 抖音短视频文案。
+- 从该主题派生的产品文档。
 
-Do not put here:
+不适合放：
 
-- New technical facts that do not also exist in `content.md`.
-- Platform drafts that contradict the mother content.
-- Large exported videos.
+- 没有同步回 `content.md` 的新技术事实。
+- 与母内容矛盾的平台稿。
+- 导出后的大视频。
 
-Suggested shape:
+建议结构：
 
 ```text
 publish/
@@ -622,98 +623,98 @@ publish/
 └─ douyin.md
 ```
 
-Constraint:
+约束：
 
-- Treat these as derived files. When facts change, update `content.md` first, then refresh platform drafts.
+- 这些都是派生文件。事实变化时，先改 `content.md`，再刷新平台稿。
 
 ## `templates/`
 
-Purpose:
+用途：
 
-- Store reusable writing and review templates.
+- 保存可复用的写作和审查模板。
 
-Put here:
+适合放：
 
-- Mother content template.
-- Evidence template.
-- Experiment template.
-- Benchmark template.
-- Review template.
-- External asset index template.
-- Video script template.
-- Article template.
+- 母内容模板。
+- 证据模板。
+- 实验模板。
+- Benchmark 模板。
+- 审查模板。
+- 外部资产索引模板。
+- 视频脚本模板。
+- 文章模板。
 
-Do not put here:
+不适合放：
 
-- Topic-specific content.
-- Finished drafts.
-- Large assets.
+- 具体主题内容。
+- 已完成稿件。
+- 大型素材。
 
-Constraint:
+约束：
 
-- Templates should stay generic enough to reuse across domains.
+- 模板要保持通用，能跨领域复用。
 
 ## `skills/`
 
-Purpose:
+用途：
 
-- Store AI working methods used for this repository.
+- 保存本仓库专用的 AI 工作方法。
 
-Put here:
+适合放：
 
-- Repository-specific Codex skills.
-- Skill instructions that define how AI should review or transform technical content.
+- 仓库专用 Codex Skill。
+- 定义 AI 如何审查或转换技术内容的工作指令。
 
-Do not put here:
+不适合放：
 
-- Technical knowledge articles.
-- Platform drafts.
-- Random prompts detached from a repeatable workflow.
+- 技术知识文章。
+- 平台稿。
+- 不能形成重复流程的零散提示词。
 
-Constraint:
+约束：
 
-- Skills should describe how to work, not become a second knowledge base.
-- Keep skill instructions concise and move topic-specific knowledge to `content/`.
+- Skill 应描述“如何工作”，不要变成第二套知识库。
+- 具体技术知识放进 `content/`。
 
 ### `skills/mother-content-reviewer/`
 
-Purpose:
+用途：
 
-- Review `content.md` files for correctness, evidence, reproducibility, privacy, and improvement opportunities.
+- 审查 `content.md` 的技术正确性、证据、复现性、脱敏情况和产品化机会。
 
-Constraint:
+约束：
 
-- The reviewer should write findings into `review/`.
-- It should not silently rewrite `content.md` as if suggestions were facts.
+- 审查结果应写入主题的 `review/`。
+- 不应把建议直接当事实改进 `content.md`。
 
 ## `products/`
 
-Purpose:
+用途：
 
-- Store reusable or sellable assets derived from accumulated content.
+- 保存从内容积累中派生出来的可复用或可出售资产。
 
-Put here:
+适合放：
 
-- Toolkits.
-- Checklists.
-- Small tools.
-- Demo packages.
-- Course outlines.
-- Technical asset bundles.
-- Skills derived from repeated workflows.
+- 工具包。
+- 清单。
+- 小工具。
+- Demo 包。
+- 课程大纲。
+- 技术资料包。
+- 从重复工作流中沉淀出来的 Skill。
 
-Do not put here:
+不适合放：
 
-- Random article drafts.
-- One-off experiments with no product direction.
-- Large binary release packages.
+- 随机文章草稿。
+- 没有产品方向的一次性实验。
+- 大型二进制发布包。
 
-Constraint:
+约束：
 
-- Each product should point back to the content topics that support it.
-- Product claims should be traceable to `content/` and `evidence/`.
+- 每个产品应能追溯到支撑它的 `content/` 主题。
+- 产品中的技术主张应能追溯到 `content/` 和 `evidence/`。
 
-Example:
+示例：
 
 ```text
 products/
@@ -725,41 +726,41 @@ products/
 
 ## `archive/`
 
-Purpose:
+用途：
 
-- Preserve material that is obsolete, superseded, abandoned, or no longer maintained.
+- 保存过时、被替代、放弃或不再维护的内容。
 
-Put here:
+适合放：
 
-- Deprecated topics.
-- Old drafts replaced by newer content.
-- Outdated technology notes.
-- Ideas you decided not to pursue.
+- 废弃主题。
+- 被新内容替代的旧草稿。
+- 已过时的技术笔记。
+- 决定不再继续的选题。
 
-Do not put here:
+不适合放：
 
-- Active topics.
-- Large raw files.
-- Private/customer material.
+- 活跃主题。
+- 大型原始文件。
+- 客户或公司私有材料。
 
-Constraint:
+约束：
 
-- Prefer archiving over deleting when the history may still be useful.
-- Add a short note explaining why the item was archived.
+- 当历史可能仍有价值时，优先归档而不是删除。
+- 归档内容应补一句简短说明，解释为什么归档。
 
-## Placement Checklist
+## 放置检查清单
 
-When deciding where something belongs, ask:
+决定一个材料放哪里时，按下面顺序判断：
 
-1. Is it a raw idea or quick capture? Put it in `inbox/`.
-2. Is it the maintained source of truth for a technical problem? Put it in `content/<domain>/<topic>/content.md`.
-3. Is it a large external file? Keep it outside Git and record a `media://` pointer in `external-assets.md`.
-4. Does it support a claim? Put it in `evidence/`.
-5. Is it a small visual asset? Put it in `assets/`.
-6. Is it minimal reproducible code? Put it in `demo/`.
-7. Is it small reproducibility data? Put it in `data/`.
-8. Is it AI or human critique? Put it in `review/`.
-9. Is it a platform draft? Put it in `publish/`.
-10. Is it reusable or sellable as an asset? Put it in `products/`.
-11. Is it outdated but still worth keeping? Put it in `archive/`.
-12. Is it private? Keep it outside this repository and record only a sanitized pointer.
+1. 是原始想法或快速捕获吗？放进 `inbox/`。
+2. 是某个技术问题的长期事实源吗？放进 `content/<domain>/<topic>/content.md`。
+3. 是大型外部文件吗？留在 Git 外，并在 `external-assets.md` 里记录 `media://` 链接。
+4. 是支撑结论的证据吗？放进 `evidence/`。
+5. 是小型视觉素材吗？放进 `assets/`。
+6. 是最小可复现代码吗？放进 `demo/`。
+7. 是小型复现数据吗？放进 `data/`。
+8. 是 AI 或人工审查意见吗？放进 `review/`。
+9. 是平台稿吗？放进 `publish/`。
+10. 是可复用或可出售资产吗？放进 `products/`。
+11. 已过时但仍值得保留吗？放进 `archive/`。
+12. 包含私密信息吗？留在仓库外，只记录脱敏后的说明或逻辑链接。

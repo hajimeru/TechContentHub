@@ -1,63 +1,63 @@
-# <Topic Title>
+# <主题标题>
 
-## Status
+## 状态
 
-- State: draft
-- Domain:
-- Topic slug:
-- Last reviewed:
+- 状态：草稿
+- 领域：
+- 主题 slug：
+- 最近审查日期：
 
-## Problem
+## 问题
 
-What technical problem does this topic solve?
+这个主题要解决什么技术问题？
 
-## Background
+## 背景
 
-What context does the reader need before the details make sense?
+读者需要先了解哪些上下文，后面的技术细节才说得通？
 
-## Core Explanation
+## 核心解释
 
-Explain the mechanism, principle, or workflow.
+解释这个问题背后的机制、原理或工作流。
 
-## Verified Conclusions
+## 已验证结论
 
-- Conclusion:
-  - Evidence:
-  - Scope:
+- 结论：
+  - 证据：
+  - 适用范围：
 
-## Environment
+## 环境
 
-- OS:
-- Compiler/toolchain:
-- Library versions:
-- Driver/runtime:
-- Hardware:
+- 操作系统：
+- 编译器 / 工具链：
+- 库版本：
+- 驱动 / 运行时：
+- 硬件：
 
-## Reproduction
+## 复现
 
-Steps needed to reproduce the result.
+说明复现结果所需的步骤。
 
 ## Demo
 
-Link to `demo/` or explain why no demo is needed.
+链接到 `demo/`，或者说明为什么这个主题不需要 Demo。
 
-## Common Mistakes
+## 常见错误
 
-- Mistake:
-  - Why it happens:
-  - How to avoid it:
+- 错误：
+  - 发生原因：
+  - 避免方式：
 
-## Boundaries
+## 边界
 
-Where this conclusion applies and where it may not apply.
+说明这个结论适用于哪里，不适用于哪里。
 
-## Open Questions
+## 开放问题
 
-- 待验证:
+- 待验证：
 
-## External Assets
+## 外部资产
 
-Large files, if any:
+如果有大文件，记录对应位置：
 
-- Path or link:
+- 路径或链接：
 

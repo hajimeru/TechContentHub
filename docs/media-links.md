@@ -1,26 +1,26 @@
-# Media Links
+# 媒体链接
 
-`media://` links are logical links used by TechContentHub to reference large files that live outside Git.
+`media://` 链接是 `TechContentHub` 用来引用外部大文件的逻辑链接。
 
-They are repository conventions, not operating-system protocols. A normal browser or editor may not open them directly unless a tool resolves them with `config/media-roots.local.yaml`.
+它是仓库内部约定，不是操作系统协议。普通浏览器或编辑器不一定能直接打开 `media://` 链接，除非有工具读取 `config/media-roots.local.yaml` 并完成路径解析。
 
-## Why Use `media://`
+## 为什么使用 `media://`
 
-Large raw videos, large models, heavy datasets, source footage, installers, and generated binary packages should stay outside this Git repository.
+大型原始视频、大模型、大型数据集、源素材、安装包和生成的二进制包应该留在 Git 仓库外。
 
-Instead of writing machine-specific paths everywhere, use a stable URI:
+文档里不要到处写某台电脑的绝对路径，而应该写稳定的逻辑 URI：
 
 ```text
 media://assets/content/osg/osg-instance-rendering/raw-video/10m-instance-test.mp4
 ```
 
-This URI is resolved through:
+这个 URI 通过下面的配置文件解析：
 
 ```text
 config/media-roots.local.yaml
 ```
 
-Example mapping:
+示例配置：
 
 ```yaml
 version: 1
@@ -32,37 +32,37 @@ roots:
     path: "D:/BaiduSyncdisk/TechContentHub-Assets"
 ```
 
-With that mapping, this URI:
+在这个配置下：
 
 ```text
 media://assets/content/osg/osg-instance-rendering/raw-video/10m-instance-test.mp4
 ```
 
-points to:
+对应本机路径：
 
 ```text
 D:/BaiduSyncdisk/TechContentHub-Assets/content/osg/osg-instance-rendering/raw-video/10m-instance-test.mp4
 ```
 
-## Where To Use It
+## 使用位置
 
-Use `media://` mainly in each topic's external asset index:
+`media://` 主要写在每个主题的外部资产索引中：
 
 ```text
 content/<domain>/<topic>/external-assets.md
 ```
 
-It can also appear in `content.md` or `evidence/` when a claim depends on an external file.
+如果某个技术结论依赖外部文件，也可以在 `content.md` 或 `evidence/` 中引用对应的 `media://` 链接。
 
-## Rules
+## 规则
 
-- Use `media://assets/...` for large external assets.
-- Keep small files that belong in Git under `assets/`, `data/`, `demo/`, or `evidence/`.
-- Keep large files out of Git and reference them through `external-assets.md`.
-- Keep the path after `media://assets/` aligned with the topic path when possible.
-- Edit `config/media-roots.local.yaml` after cloning on another computer.
+- 大型外部资产使用 `media://assets/...`。
+- 适合进入 Git 的小文件仍然放在 `assets/`、`data/`、`demo/` 或 `evidence/`。
+- 大文件不进入 Git，只在 `external-assets.md` 中记录索引。
+- `media://assets/` 后面的路径尽量和主题路径保持一致。
+- 换电脑后修改 `config/media-roots.local.yaml` 的 `path`。
 
-## Recommended External Asset Layout
+## 推荐的外部资产库结构
 
 ```text
 TechContentHub-Assets/
@@ -75,25 +75,25 @@ TechContentHub-Assets/
          └─ source-material/
 ```
 
-## Example
+## 示例
 
 ```markdown
-# External Assets
+# 外部资产
 
-## Original Recording
+## 原始录屏
 
-- Name: 10 million instance performance test recording
-- Type: video
-- URI: media://assets/content/osg/osg-instance-rendering/raw-video/10m-instance-test.mp4
-- Storage: Baidu Netdisk sync
-- Purpose: Bilibili source material and performance evidence
+- 名称：1000 万实例性能测试原始录屏
+- 类型：video
+- URI：media://assets/content/osg/osg-instance-rendering/raw-video/10m-instance-test.mp4
+- 存储：百度网盘同步目录
+- 用途：B 站视频素材、性能测试证据
 
-## Large Test Scene
+## 大型测试场景
 
-- Name: 10 million instance test scene
-- Type: dataset
-- URI: media://assets/content/osg/osg-instance-rendering/large-model/10m-instance-scene.zip
-- Storage: Baidu Netdisk sync
-- Purpose: Reproducing benchmark data
+- 名称：1000 万实例测试场景
+- 类型：dataset
+- URI：media://assets/content/osg/osg-instance-rendering/large-model/10m-instance-scene.zip
+- 存储：百度网盘同步目录
+- 用途：复现 benchmark 数据
 ```
 

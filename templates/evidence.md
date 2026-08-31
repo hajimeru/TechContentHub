@@ -1,25 +1,25 @@
-# Evidence
+# 证据
 
-## Claim
+## 对应结论
 
-Which claim does this evidence support or challenge?
+这份证据支持或挑战 `content.md` 中的哪一个结论？
 
-## Source
+## 来源
 
-- Type: official-doc / standard / release-note / issue / experiment / benchmark / other
-- URL or path:
-- Access date:
+- 类型：官方文档 / 标准 / Release Note / Issue / 实验 / Benchmark / 其他
+- URL 或路径：
+- 访问日期：
 
-## Summary
+## 摘要
 
-Short summary in your own words.
+用自己的话简短概括这份证据。
 
-## Reliability
+## 可信度
 
-- Is this a primary source?
-- Does it depend on version, platform, hardware, driver, compiler, or configuration?
+- 是否是一手来源？
+- 是否依赖版本、平台、硬件、驱动、编译器或配置？
 
-## Implication
+## 对母内容的影响
 
-How should this affect `content.md`?
+这份证据应该如何影响 `content.md`？
 
