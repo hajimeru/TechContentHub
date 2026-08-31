@@ -79,3 +79,6 @@ __pycache__/
 TechContentHub-Assets/
 assets-large/
 large-assets/
+
+#obsidian工作区忽略
+.obsidian/

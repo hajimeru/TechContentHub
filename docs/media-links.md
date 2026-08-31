@@ -27,9 +27,10 @@ version: 1
 
 roots:
   assets:
-    uri_prefix: "media://assets/"
+    uri_prefix: "media://"
     storage: "baidu-netdisk-sync"
-    path: "D:/BaiduSyncdisk/TechContentHub-Assets"
+    path: "D:/BaiduSyncdisk/TechContentHub-Media"
+    description: "TechContentHub 的外部大文件资产库。"
 ```
 
 在这个配置下：
